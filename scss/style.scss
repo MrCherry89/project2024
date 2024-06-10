@@ -1,0 +1,352 @@
+@import "mixins";
+@import "global";
+@import "fonts";
+
+header {
+  @include flex;
+  @include align-center;
+  @include justify-between;
+  background: white;
+  padding: 20px;
+  margin-bottom: 25px;
+  .logo {
+    @include flex;
+  }
+  .lang {
+    @include flex;
+    @include align-center;
+    button {
+      font-size: 15px;
+      color: #4f4f4f;
+      padding: 2px 6px;
+      border: 1px solid transparent;
+      margin-left: 5px;
+      border-radius: 5px;
+      &.active {
+        border-color: $green;
+      }
+    }
+  }
+  .back {
+    @include flex;
+    @include align-center;
+    font-size: 15px;
+    color: #4f4f4f;
+    img {
+      margin-right: 8px;
+    }
+    &.op {
+      opacity: 0;
+    }
+  }
+}
+
+.global-link {
+  border-radius: 10px;
+  background: white;
+  margin-bottom: 10px;
+  min-height: 50px;
+  @include flex;
+  @include align-center;
+  padding: 0 20px;
+  span {
+    font-size: 16px;
+    color: #141414;
+    max-width: 220px;
+  }
+  img {
+    margin-right: 10px;
+  }
+}
+
+.choose-language {
+  padding: 0 20px;
+  h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 20px;
+    max-width: 200px;
+  }
+}
+
+.select {
+  padding: 0 20px;
+}
+
+.green-btn {
+  width: 100%;
+  height: 44px;
+  @include flex;
+  @include align-center;
+  background: $green;
+  color: white;
+  @include justify-center;
+  border-radius: 50px;
+  font-size: 16px;
+  &.bdrs {
+    border-radius: 10px;
+    height: 50px;
+  }
+}
+
+.input {
+  height: 44px;
+  width: 100%;
+  padding: 0 16px;
+  border-radius: 50px;
+  border: 1px solid #b6b6b6;
+  background: transparent;
+  font-size: 14px;
+  color: #000;
+  transition: 0.3s;
+  @include placeholder {
+    font-size: 14px;
+    color: #4f4f4f;
+  }
+  &:focus {
+    border-color: #000;
+  }
+  &.error {
+    border-color: #eb5757;
+  }
+}
+
+.continue {
+  padding: 0 20px;
+  p {
+    font-size: 14px;
+    color: #4f4f4f;
+    margin-bottom: 15px;
+  }
+  .continue-form {
+    .input {
+      margin-bottom: 25px;
+    }
+  }
+}
+
+.select-block {
+  padding: 0 20px;
+  .select-wrap {
+    margin-bottom: 10px;
+  }
+}
+
+.select-service {
+  padding: 0 20px;
+  p {
+    font-size: 14px;
+    color: #4f4f4f;
+    margin-bottom: 10px;
+  }
+  .main-title {
+    margin-bottom: 15px;
+  }
+}
+
+.your-call {
+  padding: 0 20px;
+  .main-title {
+    margin-bottom: 5px;
+  }
+  p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #717171;
+  }
+  .info {
+    max-width: 280px;
+    width: 100%;
+    margin: 0 auto 10px;
+    padding: 25px;
+    position: relative;
+    z-index: 0;
+    @include flex;
+    @include dir-col;
+    @include align-center;
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: -1;
+    }
+    .num {
+      color: $green;
+      font-size: 42px;
+      line-height: 100%;
+      font-weight: 600;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .green {
+      color: $green;
+      margin-bottom: 10px;
+      font-size: 15px;
+      text-align: center;
+    }
+    ul {
+      width: 100%;
+      li {
+        @include flex;
+        @include align-center;
+        @include justify-between;
+        padding-bottom: 5px;
+        margin-bottom: 15px;
+        border-bottom: 1px dashed #a1a1a1;
+        .text {
+          font-size: 12px;
+          color: #8a8c8b;
+        }
+        .black {
+          font-size: 12px;
+          color: #424242;
+        }
+        .count {
+          font-size: 12px;
+          border-radius: 50%;
+          background: #ff9900;
+          width: 18px;
+          height: 18px;
+          @include flex;
+          @include align-center;
+          @include justify-center;
+          color: white;
+        }
+      }
+    }
+  }
+  .give-up-btn {
+    width: 100%;
+    @include flex;
+    @include align-center;
+    @include justify-center;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background: #d9d9d9;
+    height: 40px;
+    font-size: 15px;
+    color: #e95656;
+  }
+  .coupon {
+    .coupon-top {
+      @include flex;
+      @include justify-between;
+      @include align-center;
+      margin-bottom: 15px;
+      b {
+        font-weight: bold;
+        font-size: 15px;
+        text-transform: uppercase;
+        color: #000;
+      }
+    }
+    .coupon-item {
+      margin-bottom: 5px;
+      @include flex;
+      @include justify-between;
+      @include align-center;
+      border-radius: 10px;
+      background: white;
+      height: 40px;
+      padding: 0 15px;
+      span {
+        font-size: 15px;
+        color: $green;
+      }
+      svg {
+        fill: $green;
+        transition: 0.3s;
+      }
+      &.active {
+        background: $green;
+        span {
+          color: white;
+        }
+        svg {
+          fill: white;
+        }
+      }
+    }
+  }
+}
+
+.rate {
+  padding: 0 20px;
+  background: white;
+  > p {
+    font-size: 15px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #7e7e7e;
+  }
+  .rate-form {
+    @include flex;
+    @include dir-col;
+    textarea {
+      border-radius: 10px;
+      resize: none;
+      width: 100%;
+      min-height: 130px;
+      padding: 15px;
+      font-size: 15px;
+      color: #000;
+      margin-bottom: 10px;
+      background: #ebebeb;
+      border: 1px solid #ebebeb;
+      transition: 0.3s;
+      &.error {
+        border-color: #e95656;
+      }
+      @include placeholder {
+        color: #7e7e7e;
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+.end {
+  padding: 0 20px;
+  @include flex;
+  @include align-center;
+  @include justify-center;
+  @include dir-col;
+  height: calc(100vh - 110px);
+  .big-star {
+    margin-bottom: 10px;
+  }
+  p {
+    max-width: 280px;
+    font-size: 24px;
+    color: #000;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+.star-rating {
+  @include flex;
+  @include justify-center;
+  @include align-center;
+  margin-bottom: 10px;
+  font-size: 3em;
+  direction: rtl;
+}
+
+.star {
+  cursor: pointer;
+  color: #ddd;
+}
+
+.star:hover,
+.star:hover ~ .star {
+  color: $green;
+}
+
+.star.selected,
+.star.selected ~ .star {
+  color: $green;
+}

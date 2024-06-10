@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <title>Project</title>
+    <link rel="stylesheet" href="css/select2.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <main>
+      <header>
+        <a href="index.html" class="back">
+          <img src="img/back-arrow.svg" alt="" />
+          Назад
+        </a>
+        <a href="index.html" class="logo">
+          <img src="img/logo.svg" alt="" />
+        </a>
+        <div class="lang">
+          <button type="button">Қаз</button>
+          <button type="button" class="active">Рус</button>
+        </div>
+      </header>
+      <div class="continue">
+        <h2 class="main-title">Доброе утро!</h2>
+        <p>Введите ваш номер телефона</p>
+        <form class="continue-form">
+          <input
+            id="phone"
+            type="tel"
+            name="phone"
+            required
+            class="phone-number-input input"
+            placeholder="+7 (___) ___ __ __"
+          />
+          <button type="submit" class="green-btn">Продолжить</button>
+        </form>
+      </div>
+    </main>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/jquery.inputmask.bundle.min.js"></script>
+    <script src="js/select2.min.js"></script>
+    <script src="js/jquery.validate.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
