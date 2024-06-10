@@ -1,4 +1,18 @@
+const { active, none, countryCode } = {
+  active: "active",
+  none: "d-none",
+  countryCode: "countryCode",
+};
+
+const getSavedLanguage = localStorage.getItem(countryCode);
+const changeLanguage = document.querySelectorAll(".change-language");
+
 $(document).ready(function () {
+  $(".lang button").removeClass(active);
+  if (getSavedLanguage) {
+    $(`*[data-lang="${getSavedLanguage}"]`).addClass(active);
+  }
+
   $(".select-wrap select").select2({
     minimumResultsForSearch: -1,
   });
@@ -26,28 +40,66 @@ $(document).ready(function () {
     },
   });
 
-  const stars = document.querySelectorAll(".star-rating .star");
-
-  stars.forEach((star) => {
-    star.addEventListener("click", function () {
-      stars.forEach((s) => s.classList.remove("selected"));
-      this.classList.add("selected");
-      let rating = this.getAttribute("data-value");
-      console.log(`You rated this ${rating} stars.`);
+  const starEls = document.querySelectorAll(".star.rating");
+  starEls.forEach((star) => {
+    star.addEventListener("click", function (e) {
+      let starEl = e.currentTarget;
+      console.log(
+        starEl.parentNode.dataset.stars + ", " + starEl.dataset.rating
+      );
+      starEl.parentNode.setAttribute("data-stars", starEl.dataset.rating);
     });
+  });
 
-    star.addEventListener("mouseover", function () {
-      stars.forEach((s) => s.classList.remove("hover"));
-      this.classList.add("hover");
-      let prev = this.previousElementSibling;
-      while (prev) {
-        prev.classList.add("hover");
-        prev = prev.previousElementSibling;
+  // TRANSLATE
+
+  const elmTranslate = document.querySelectorAll(".tr");
+
+  function translateSite(isoCode) {
+    elmTranslate.forEach((item) => {
+      const getKey = item.dataset.key;
+      if (getKey) {
+        const getKeyTranslate = translateKeys.find((tr) => tr.key === getKey);
+
+        if (getKeyTranslate) {
+          item.innerHTML = getKeyTranslate[isoCode];
+        } else {
+          console.error("No key for translateKeys Array");
+        }
+      } else {
+        console.error("No Data Key");
       }
     });
+  }
 
-    star.addEventListener("mouseout", function () {
-      stars.forEach((s) => s.classList.remove("hover"));
+  function Request(url, option = {}) {
+    return fetch(url, option).then((res) => res.json());
+  }
+
+  Request("https://ipapi.co/json").then((res) => {
+    if (getSavedLanguage) {
+      translateSite(getSavedLanguage.toLowerCase());
+    } else {
+      let code = res.country_code;
+
+      if (code !== "ru" || code !== "kz") {
+        code = "ru";
+      }
+
+      translateSite(code.toLowerCase());
+      localStorage.setItem(countryCode, code.toLowerCase());
+    }
+  });
+
+  changeLanguage.forEach((item) => {
+    item.addEventListener("click", function () {
+      const lang = this.dataset.lang;
+      if (lang) {
+        translateSite(lang);
+        localStorage.setItem(countryCode, lang.toLowerCase());
+      } else {
+        console.log("Lang err");
+      }
     });
   });
 });

@@ -8,28 +8,31 @@
     <title>Project</title>
     <link rel="stylesheet" href="css/select2.min.css" />
     <link rel="stylesheet" href="css/style.css" />
+
+    <script src="js/language/language.js"></script>
   </head>
 
   <body>
     <main>
       <header>
-        <a href="#" class="back op">
-          <img src="img/back-arrow.svg" alt="" />
-          Назад
-        </a>
+        <div class="back op"></div>
         <a href="index.html" class="logo">
           <img src="img/logo.svg" alt="" />
         </a>
         <div class="lang">
-          <button type="button">Қаз</button>
-          <button type="button" class="active">Рус</button>
+          <button type="button" class="change-language" data-lang="kz">
+            Қаз
+          </button>
+          <button type="button" class="change-language" data-lang="ru">
+            Рус
+          </button>
         </div>
       </header>
       <div class="choose-language">
-        <h3>Пожалуйста, выберите язык</h3>
+        <h3 class="tr" data-key="select_language"></h3>
         <a href="#" class="global-link"><span>Қазақ тілі</span></a>
         <a href="continue.html" class="global-link"
-          ><span>Русский язык</span></a
+          ><span class="tr" data-key="ru">Русский язык</span></a
         >
       </div>
     </main>

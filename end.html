@@ -8,29 +8,28 @@
     <title>Project</title>
     <link rel="stylesheet" href="css/select2.min.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <script src="js/language/language.js"></script>
   </head>
 
   <body>
     <main>
       <header>
-        <a href="#" class="back op">
-          <img src="img/back-arrow.svg" alt="" />
-          Назад
-        </a>
+        <div class="back op"></div>
         <a href="index.html" class="logo">
           <img src="img/logo.svg" alt="" />
         </a>
         <div class="lang">
-          <button type="button">Қаз</button>
-          <button type="button" class="active">Рус</button>
+          <button type="button" class="change-language" data-lang="kz">
+            Қаз
+          </button>
+          <button type="button" class="change-language" data-lang="ru">
+            Рус
+          </button>
         </div>
       </header>
       <div class="end">
         <img src="img/star-big.svg" alt="" class="big-star" />
-        <p>
-          Спасибо что помогаете стать нам лучше!
-          <img src="img/heart.png" alt="" />
-        </p>
+        <p class="tr" data-key="thank"></p>
       </div>
     </main>
 

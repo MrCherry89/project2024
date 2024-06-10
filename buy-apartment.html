@@ -8,33 +8,35 @@
     <title>Project</title>
     <link rel="stylesheet" href="css/select2.min.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <script src="js/language/language.js"></script>
   </head>
 
   <body>
     <main>
       <header>
-        <a href="select-service.html" class="back">
-          <img src="img/back-arrow.svg" alt="" />
-          Назад
-        </a>
+        <a href="select-service.html" class="back tr" data-key="back"></a>
         <a href="index.html" class="logo">
           <img src="img/logo.svg" alt="" />
         </a>
         <div class="lang">
-          <button type="button">Қаз</button>
-          <button type="button" class="active">Рус</button>
+          <button type="button" class="change-language" data-lang="kz">
+            Қаз
+          </button>
+          <button type="button" class="change-language" data-lang="ru">
+            Рус
+          </button>
         </div>
       </header>
       <div class="select-service">
-        <p>Здравствуйте Виктор!</p>
-        <h2 class="main-title">Выберите услугу</h2>
+        <p class="tr" data-key="hello"></p>
+        <h2 class="main-title tr" data-key="select-service"></h2>
         <a href="select-manager.html" class="global-link">
           <img src="img/link-icon2.svg" alt="" />
-          <span> Выбрать менеджера</span>
+          <span class="tr" data-key="select-manager"> </span>
         </a>
         <a href="info.html" class="global-link">
           <img src="img/link-icon2.svg" alt="" />
-          <span> Любой менеджер</span>
+          <span class="tr" data-key="any-manager"> </span>
         </a>
       </div>
     </main>

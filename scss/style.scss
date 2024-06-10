@@ -32,8 +32,22 @@ header {
     @include align-center;
     font-size: 15px;
     color: #4f4f4f;
-    img {
-      margin-right: 8px;
+    position: relative;
+    z-index: 0;
+    padding-left: 17px;
+    min-width: 62px;
+    &:after {
+      content: "";
+      background: url(../img/back-arrow.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      width: 12px;
+      height: 8px;
     }
     &.op {
       opacity: 0;
@@ -162,14 +176,17 @@ header {
     padding: 25px;
     position: relative;
     z-index: 0;
+    min-height: 230px;
     @include flex;
     @include dir-col;
     @include align-center;
-    img {
+    overflow: hidden;
+    > img {
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
+      width: auto;
+      height: 100%;
       z-index: -1;
     }
     .num {
@@ -183,7 +200,7 @@ header {
     .green {
       color: $green;
       margin-bottom: 10px;
-      font-size: 15px;
+      font-size: 14px;
       text-align: center;
     }
     ul {
@@ -216,6 +233,38 @@ header {
         }
       }
     }
+    &.info-green {
+      margin-bottom: 20px;
+      .num,
+      .green {
+        color: white;
+      }
+      .wrap {
+        @include flex;
+        @include align-center;
+        margin: 25px 0;
+        img {
+          align-self: center;
+          margin-right: 10px;
+        }
+        b {
+          font-size: 24px;
+          font-weight: 600;
+          color: white;
+        }
+      }
+      .bottom {
+        padding-bottom: 5px;
+        @include flex;
+        width: 100%;
+        @include justify-between;
+        border-bottom: 1px dashed rgba(white, 0.3);
+        span {
+          font-size: 12px;
+          color: white;
+        }
+      }
+    }
   }
   .give-up-btn {
     width: 100%;
@@ -230,18 +279,6 @@ header {
     color: #e95656;
   }
   .coupon {
-    .coupon-top {
-      @include flex;
-      @include justify-between;
-      @include align-center;
-      margin-bottom: 15px;
-      b {
-        font-weight: bold;
-        font-size: 15px;
-        text-transform: uppercase;
-        color: #000;
-      }
-    }
     .coupon-item {
       margin-bottom: 5px;
       @include flex;
@@ -269,6 +306,19 @@ header {
         }
       }
     }
+  }
+}
+
+.coupon-top {
+  @include flex;
+  @include justify-between;
+  @include align-center;
+  margin-bottom: 15px;
+  b {
+    font-weight: bold;
+    font-size: 15px;
+    text-transform: uppercase;
+    color: #000;
   }
 }
 
@@ -305,6 +355,9 @@ header {
       }
     }
   }
+  &.rate2 {
+    padding: 20px;
+  }
 }
 
 .end {
@@ -324,29 +377,74 @@ header {
     width: 100%;
     margin: 0 auto;
     text-align: center;
+    &:after {
+      content: "";
+      background: url(../img/heart.png);
+      width: 23px;
+      height: 23px;
+      display: inline-block;
+    }
   }
 }
 
-.star-rating {
+.rating {
   @include flex;
-  @include justify-center;
   @include align-center;
-  margin-bottom: 10px;
-  font-size: 3em;
-  direction: rtl;
+  @include justify-center;
+  flex-direction: row-reverse;
+  margin-bottom: 15px;
+  border: none;
 }
 
-.star {
+.rating label {
+  width: 40px;
+  height: 40px;
+}
+
+.rating:not(:checked) > input {
+  position: absolute;
+  top: -9999px;
+  clip: rect(0, 0, 0, 0);
+}
+
+.rating:not(:checked) > label {
+  float: right;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  white-space: nowrap;
   cursor: pointer;
-  color: #ddd;
+  margin: 0 5px;
+  line-height: 1.2;
 }
 
-.star:hover,
-.star:hover ~ .star {
-  color: $green;
+.icon-star {
+  width: 40px;
+  height: 40px;
+  fill: #d9d9d9;
+  transition: all 0.3s;
+  pointer-events: none;
 }
 
-.star.selected,
-.star.selected ~ .star {
-  color: $green;
+.rating > input:checked ~ label .icon-star {
+  fill: $green;
+}
+
+.rating:not(:checked) > label:hover .icon-star,
+.rating:not(:checked) > label:hover ~ label .icon-star {
+  fill: #d9d9d9;
+}
+
+.rating > input:checked + label:hover .icon-star,
+.rating > input:checked + label:hover ~ label .icon-star,
+.rating > input:checked ~ label:hover .icon-star,
+.rating > input:checked ~ label:hover ~ label .icon-star,
+.rating > label:hover ~ input:checked ~ label .icon-star {
+  fill: $green;
+}
+
+.rating > label:active {
+  position: relative;
+  top: 1px;
+  left: 1px;
 }

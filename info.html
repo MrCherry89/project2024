@@ -8,37 +8,39 @@
     <title>Project</title>
     <link rel="stylesheet" href="css/select2.min.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <script src="js/language/language.js"></script>
   </head>
 
   <body>
     <main>
       <header>
-        <a href="select-service.html" class="back">
-          <img src="img/back-arrow.svg" alt="" />
-          Назад
-        </a>
+        <a href="select-service.html" class="back tr" data-key="back"></a>
         <a href="index.html" class="logo">
           <img src="img/logo.svg" alt="" />
         </a>
         <div class="lang">
-          <button type="button">Қаз</button>
-          <button type="button" class="active">Рус</button>
+          <button type="button" class="change-language" data-lang="kz">
+            Қаз
+          </button>
+          <button type="button" class="change-language" data-lang="ru">
+            Рус
+          </button>
         </div>
       </header>
       <div class="your-call">
-        <h2 class="main-title">Не закрывайте окно</h2>
-        <p>Ваш вызов отобразится здесь</p>
+        <h2 class="main-title tr" data-key="dont-close"></h2>
+        <p class="tr" data-key="your-call"></p>
         <div class="info">
           <img src="img/white-style.svg" alt="" />
           <span class="num">746</span>
-          <span class="green">Ваш номер в очереди</span>
+          <span class="green tr" data-key="your-number"></span>
           <ul>
             <li>
-              <span class="text">В очереди перед вами</span>
+              <span class="text tr" data-key="turn"></span>
               <span class="count">3</span>
             </li>
             <li>
-              <span class="text">Сейчас вызван</span>
+              <span class="text tr" data-key="called-now"></span>
               <span class="text">742</span>
             </li>
             <li>
@@ -47,11 +49,11 @@
             </li>
           </ul>
         </div>
-        <a href="info-in.html" class="give-up-btn">Отказаться от очереди</a>
+        <a href="info-in.html" class="give-up-btn tr" data-key="skip"></a>
         <div class="coupon">
           <div class="coupon-top">
             <b>Талон №</b>
-            <b>ОКНО</b>
+            <b class="tr" data-key="window"></b>
           </div>
           <div class="coupon-item active">
             <span>746</span>
