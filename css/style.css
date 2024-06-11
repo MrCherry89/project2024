@@ -564,7 +564,11 @@ header .back.op {
   color: #4f4f4f;
   margin-bottom: 15px;
 }
-.continue .continue-form .input {
+.continue p.margin {
+  margin-bottom: 0px;
+}
+.continue .continue-form .input,
+.continue .continue-form2 .input {
   margin-bottom: 25px;
 }
 
@@ -740,7 +744,8 @@ header .back.op {
   font-size: 15px;
   color: #e95656;
 }
-.your-call .coupon .coupon-item {
+
+.coupon-item {
   margin-bottom: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -756,21 +761,21 @@ header .back.op {
   height: 40px;
   padding: 0 15px;
 }
-.your-call .coupon .coupon-item span {
+.coupon-item span {
   font-size: 15px;
   color: #0e6131;
 }
-.your-call .coupon .coupon-item svg {
+.coupon-item svg {
   fill: #0e6131;
   transition: 0.3s;
 }
-.your-call .coupon .coupon-item.active {
+.coupon-item.active {
   background: #0e6131;
 }
-.your-call .coupon .coupon-item.active span {
+.coupon-item.active span {
   color: white;
 }
-.your-call .coupon .coupon-item.active svg {
+.coupon-item.active svg {
   fill: white;
 }
 
@@ -801,6 +806,7 @@ header .back.op {
   font-size: 15px;
   margin-bottom: 10px;
   text-align: center;
+  margin-top: 10px;
   color: #7e7e7e;
 }
 .rate .rate-form {

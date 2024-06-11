@@ -132,8 +132,12 @@ header {
     font-size: 14px;
     color: #4f4f4f;
     margin-bottom: 15px;
+    &.margin {
+      margin-bottom: 0px;
+    }
   }
-  .continue-form {
+  .continue-form,
+  .continue-form2 {
     .input {
       margin-bottom: 25px;
     }
@@ -278,33 +282,32 @@ header {
     font-size: 15px;
     color: #e95656;
   }
-  .coupon {
-    .coupon-item {
-      margin-bottom: 5px;
-      @include flex;
-      @include justify-between;
-      @include align-center;
-      border-radius: 10px;
-      background: white;
-      height: 40px;
-      padding: 0 15px;
-      span {
-        font-size: 15px;
-        color: $green;
-      }
-      svg {
-        fill: $green;
-        transition: 0.3s;
-      }
-      &.active {
-        background: $green;
-        span {
-          color: white;
-        }
-        svg {
-          fill: white;
-        }
-      }
+}
+
+.coupon-item {
+  margin-bottom: 5px;
+  @include flex;
+  @include justify-between;
+  @include align-center;
+  border-radius: 10px;
+  background: white;
+  height: 40px;
+  padding: 0 15px;
+  span {
+    font-size: 15px;
+    color: $green;
+  }
+  svg {
+    fill: $green;
+    transition: 0.3s;
+  }
+  &.active {
+    background: $green;
+    span {
+      color: white;
+    }
+    svg {
+      fill: white;
     }
   }
 }
@@ -329,6 +332,7 @@ header {
     font-size: 15px;
     margin-bottom: 10px;
     text-align: center;
+    margin-top: 10px;
     color: #7e7e7e;
   }
   .rate-form {

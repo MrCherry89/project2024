@@ -29,6 +29,13 @@ $(document).ready(function () {
   $(".continue-form").validate({
     errorPlacement: function (error, element) {},
     submitHandler: function (form) {
+      window.location.href = "continue2.html";
+    },
+  });
+
+  $(".continue-form2").validate({
+    errorPlacement: function (error, element) {},
+    submitHandler: function (form) {
       window.location.href = "select-service.html";
     },
   });
